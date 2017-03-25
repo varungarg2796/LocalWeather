@@ -4,6 +4,17 @@
 //
 var lati;
 var longi;
+
+//do this to get only the city name from search bar.
+var stri= "Varun, is bad";
+var heythere= stri.indexOf(',');
+console.log(heythere);
+console.log(stri.slice(0,heythere));
+
+
+
+var input = document.getElementById('autocomplete');
+      var autocomplete = new google.maps.places.Autocomplete(input);
 window.onload=function ()
 {
 	getLocation();
