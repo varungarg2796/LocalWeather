@@ -21,5 +21,5 @@ function showPosition(position) {
     lati= position.coords.latitude;
     longi= position.coords.longitude;
     console.log(lati);
-    console.log(losngi);
+    console.log(longi);
 }
