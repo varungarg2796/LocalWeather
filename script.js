@@ -12,6 +12,10 @@ var stri= "Varun was, is bad";
 var heythere= stri.indexOf(',');
 console.log(heythere);
 console.log(stri.slice(0,heythere));
+var skycons = new Skycons({"color": "white"});
+skycons.add(document.getElementById("icon2"), Skycons.RAIN);
+skycons.play();
+
 
 function getCityWeather()
 {	var cityEntered= $("#autocomplete").val();
