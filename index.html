@@ -7,17 +7,27 @@
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!--BootstrapJS-->
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="animate.css">
 </head>
 <body>
-<div class="container-fluid text-center">
+<div class="container-fluid text-center animated fadeIn">
 	<h1>Weather Application </h1>
 
 	<div class="headline">
 		 <input type="text" id="autocomplete"/>
 		 <button class="btn btn-primary" id="searchCity" onclick="getCityWeather()">Search</button>
 	</div>
-	<div id="displayWeather">
-		<canvas id="icon2" width="128" height="128"></canvas>	
+		<div class="row">
+			
+	    <div class="container-fluid"><h3 id="timePos">~~:~~</h3></div> <!-- time -->
+
+	    <div class="container-fluid"><h3 id="tempPos">°C</h3></div>
+
+	    <div class="container-fluid"><h3 id="weatherConditionPos">-</h3></div>
+		</div>
+
+	<div id="displayWeather" class="animated swing">
+		<canvas id="setSkycon" width="128" height="128"></canvas>	
 	</div>
 
 </div> <!-- main div ends -->

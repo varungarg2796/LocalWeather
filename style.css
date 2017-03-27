@@ -8,6 +8,12 @@ body{
 	color:black;
 }
 
+.col-md-3 {
+  float: none;
+  display: inline-block;
+  text-align: left; //reset the text alignement to left
+}
+
 
 @font-face {
     font-family: 'MeteoconsRegular';
