@@ -19,13 +19,10 @@
 		 <button class="btn btn-primary" id="searchCity" onclick="getCityWeather()">Search</button>
 	</div>
 		<div class="row">
-			
-	    <div class="container-fluid"><h3 id="timePos">~~:~~</h3></div> <!-- time -->
-
-	    <div class="container-fluid"><h3 id="tempPos">°C</h3></div>
-
-	    <div class="container-fluid"><h3 id="weatherConditionPos">-</h3></div>
-		</div>
+		<div class="col-sm-3"><h3 id="placePos">--</h3></div> <!--place-->
+	    <div class="col-sm-3"><h3 id="tempPos">°C</h3></div> <!-- temperature -->
+	    <div class="col-sm-3"><h3 id="weatherConditionPos">-</h3></div> <!-- condition -->
+	    <div class="col-sm-3"><h3 id="timePos">~~:~~</h3></div> <!-- time -->
 
 	<div id="displayWeather" class="animated swing">
 		<canvas id="setSkycon" width="128" height="128"></canvas>	

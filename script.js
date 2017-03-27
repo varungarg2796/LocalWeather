@@ -7,7 +7,7 @@
 
 
 
-var lati,long,timeHour,timeFull,weather,temp;
+var lati,long,timeHour,timeFull,weather,temp,cityEntered;
 
 var skycons = new Skycons({"color": "white"});
 skycons.add("setSkycon", Skycons.CLEAR_DAY);
@@ -23,15 +23,20 @@ function getTimeOfCity(json)
 			var parsedTimeZone = JSON.parse(rawTimeZone);
 			var dateTime = parsedTimeZone.time;
 			timeFull = dateTime.substr(11);
-			$("#timePos").html(timeFull); //Update local time
+			$("#timePos").html("Time:" + timeFull); //Update local time
 			timeHour = dateTime.substr(-5, 2);
+			console.log(json.name);
+			if (cityEntered== null)
+			{
+				$("#placePos").text("Place:" + json.name);
+			}
 	});
 }
 
 
 function getCityWeather()
 {	
-	var cityEntered= $("#autocomplete").val();
+	cityEntered= $("#autocomplete").val();
 	if (cityEntered=="")
 	{
 		alert("Please enter a city");
@@ -44,6 +49,7 @@ function getCityWeather()
 		            var rawJson = JSON.stringify(data);
 		            var json = JSON.parse(rawJson);
 		            console.log(json);
+					$("#placePos").text("Place:"+ cityEntered); //displays the temp
 		            getTimeOfCity(json);
 		            showWeather(json); //Update Weather parameters
 		 });
@@ -55,9 +61,8 @@ function showWeather(json)
 {
 	weather= json.weather[0].description;
 	temp = (json.main.temp - 273.15).toFixed(0) + "°C",
-	
-	$("#tempPos").text(temp); //displays the temp
-	$("#weatherConditionPos").html(json.weather[0].description); //displays the weather condition
+	$("#tempPos").text("Temperature:" + temp); //displays the temp
+	$("#weatherConditionPos").html("Condition:" + json.weather[0].description); //displays the weather condition
 	console.log(weather);
 
 		if(weather.indexOf("rain") >= 0) {
@@ -109,6 +114,16 @@ function showWeather(json)
 			console.log("haze");
 			skycons.set("setSkycon", Skycons.FOG);	
 		}
+		else if(weather.indexOf("fog")>=0)
+		{
+			console.log("fog");
+			skycons.set("setSkycon", Skycons.FOG);	
+		}
+		else if(weather.indexOf("mist")>=0)
+		{
+			console.log("haze");
+			skycons.set("setSkycon", Skycons.FOG);	
+		}
 		else if(weather.indexOf("wind")>=0)
 		{
 			console.log("wind");
@@ -140,7 +155,7 @@ var autocomplete = new google.maps.places.Autocomplete(input);
 //later
 window.onload=function ()
 {	//getLocation();
-	
+	getLocation();
 }
 
 function getLocation() {
@@ -154,6 +169,13 @@ function getLocation() {
 function showPosition(position) {
     lati= position.coords.latitude;
     longi= position.coords.longitude;
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + lati + "&lon=" + longi + "&APPID=2d11371484be072a931fa3ec4815f349", 
+    	function (data) {
+    	var rawJson = JSON.stringify(data);
+    	var json = JSON.parse(rawJson);
+    	getTimeOfCity(json);
+		showWeather(json); //Update Weather parameters
+    });
     console.log(lati);
     console.log(longi);
 }
