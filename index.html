@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!--BCSS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!--Jquery-->
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!--BootstrapJS-->
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="animate.css">
+</head>
+<body>
+<div class="container-fluid text-center animated fadeIn">
+	<h1>Weather Application </h1>
+
+	<div class="headline">
+		 <input type="text" id="autocomplete"/>
+		 <button class="btn btn-primary" id="searchCity" onclick="getCityWeather()">Search</button>
+	</div>
+		<div class="row">
+		<div class="col-sm-3"><h3 id="placePos">--</h3></div> <!--place-->
+	    <div class="col-sm-3"><h3 id="tempPos">°C</h3></div> <!-- temperature -->
+	    <div class="col-sm-3"><h3 id="weatherConditionPos">-</h3></div> <!-- condition -->
+	    <div class="col-sm-3"><h3 id="timePos">~~:~~</h3></div> <!-- time -->
+
+	<div id="displayWeather" class="animated swing">
+		<canvas id="setSkycon" width="128" height="128"></canvas>	
+	</div>
+
+</div> <!-- main div ends -->
+<script src="skycons.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
