@@ -4,6 +4,10 @@ body{
 	background-color: #262A33;
 	color: #FFFFFF;
 }
+#autocomplete{
+	color:black;
+}
+
 
 @font-face {
     font-family: 'MeteoconsRegular';
