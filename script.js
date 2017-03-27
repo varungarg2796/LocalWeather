@@ -17,7 +17,7 @@ function getTimeOfCity(json)
 {
 	longi = json.coord.lon;
 	lati = json.coord.lat;
-	$.getJSON('http://api.geonames.org/timezoneJSON?lat=' + lati + '&lng=' + longi + '&username=varungarg2796',
+	$.getJSON('https://crossorigin.me/http://api.geonames.org/timezoneJSON?lat=' + lati + '&lng=' + longi + '&username=varungarg2796',
 	 function(time) {
 			var rawTimeZone = JSON.stringify(time);
 			var parsedTimeZone = JSON.parse(rawTimeZone);
@@ -43,7 +43,7 @@ function getCityWeather()
 	}
 	else 
 	{
-		$.getJSON("http://api.openweathermap.org/data/2.5/weather?q="+cityEntered+"&appid=2d11371484be072a931fa3ec4815f349",
+		$.getJSON("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q="+cityEntered+"&appid=2d11371484be072a931fa3ec4815f349",
 		 function (data) 
 		 {
 		            var rawJson = JSON.stringify(data);
@@ -163,7 +163,7 @@ window.onload=function ()
 		currentPosition = position;
 		    lati= position.coords.latitude;
 		    longi= position.coords.longitude;
-		    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + lati + "&lon=" + longi + "&APPID=2d11371484be072a931fa3ec4815f349", 
+		    $.getJSON("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lati + "&lon=" + longi + "&APPID=2d11371484be072a931fa3ec4815f349", 
 		    	function (data) {
 		    	var rawJson = JSON.stringify(data);
 		    	var json = JSON.parse(rawJson);
