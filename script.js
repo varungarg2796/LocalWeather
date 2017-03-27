@@ -189,7 +189,7 @@ function getLocation() {
 function showPosition(position) {
     lati= position.coords.latitude;
     longi= position.coords.longitude;
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + lati + "&lon=" + longi + "&APPID=2d11371484be072a931fa3ec4815f349", 
+    $.getJSON("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat=" + lati + "&lon=" + longi + "&APPID=2d11371484be072a931fa3ec4815f349", 
     	function (data) {
     	var rawJson = JSON.stringify(data);
     	var json = JSON.parse(rawJson);
